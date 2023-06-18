@@ -160,6 +160,31 @@ small {
   gap: 0.5rem;
 }
 
+.text-format {
+  padding: 0;
+}
+
+[contenteditable='true'] .line:focus,
+[contenteditable='true'] .line.isFocused {
+  border: 1px solid var(--primary-variant);
+}
+
+.line {
+  border: 1px solid transparent;
+  transition: 0s;
+  margin-top: 0.5rem;
+}
+
+.line-selected {
+  border-color: var(--off-white) !important;
+}
+
+div.line:empty:not(:focus):before {
+  content: attr(placeholder);
+  color: grey;
+  font-style: italic;
+}
+
 @media (max-width: 650px) {
   .home-main {
     flex-direction: column;

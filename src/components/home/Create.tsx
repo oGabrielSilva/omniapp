@@ -3,6 +3,7 @@ import { HomeNavigationContext } from '@Omniapp/context/HomeNavigationContext';
 import { imgToDataURL } from '@Omniapp/utils/image';
 import Image from 'next/image';
 import { useContext, useRef, useState } from 'react';
+import TextRich from '../TextRich';
 
 export function Create() {
   const { screen } = useContext(HomeNavigationContext);
@@ -25,11 +26,11 @@ export function Create() {
       }}
       id="create"
     >
-      <form style={{ flex: 1, padding: '1rem' }}>
+      <form style={{ flex: 1, padding: '1rem', display: 'flex', flexDirection: 'column' }}>
         <input
           onChange={(e) => {
             if (!e.currentTarget.files) return;
-            imgToDataURL(e.currentTarget.files[0], 80, 80)
+            imgToDataURL(e.currentTarget.files[0])
               .then((img) => {
                 setImage(img);
               })
@@ -40,13 +41,13 @@ export function Create() {
           type="file"
           style={{ display: 'none' }}
         />
-        <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           {!image ? (
             <svg
               onClick={getImage}
               xmlns="http://www.w3.org/2000/svg"
-              width="80"
-              height="80"
+              width="90"
+              height="90"
               fill="var(--text)"
               className="bi bi-plus-square"
               viewBox="0 0 16 16"
@@ -66,7 +67,15 @@ export function Create() {
               style={{ borderRadius: 8, border: '4px solid var(--text)' }}
             />
           )}
+          <div style={{ width: '100%' }}>
+            <label htmlFor="c-name">{strings.name}</label>
+            <input style={{ margin: 0 }} type="text" id="c-name" />
+          </div>
         </div>
+        <div style={{ padding: '1rem 0' }}>
+          <span>{strings.about}</span>
+        </div>
+        <TextRich />
       </form>
     </div>
   );

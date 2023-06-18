@@ -8,4 +8,6 @@ interface PageProps {
 
 declare global {
   var client: PrismaClient;
+  type TextAlign = 'left' | 'right' | 'justify' | 'center';
+  type TextType = 'normal' | 'h1' | 'h2' | 'h3' | 'small';
 }

@@ -40,6 +40,8 @@ export const strings = {
     create: 'Criar',
     start: 'Começar',
     createPlaceholderAlt: 'Arquivo de imagem',
+    about: 'Sobre',
+    textRichPlaceholder: 'Conteúdo aqui...',
   },
   en: {
     appName: 'Omniapp',

@@ -24,7 +24,7 @@ export default function HomeNavigationContextProvider({ children }: HomeNavigati
     const func = () => {
       const hash = window.location.hash.slice(1) as ScreenName;
       if (screens.includes(hash)) setScreen(hash);
-      if (!hash) setScreen('feed');
+      else setScreen('feed');
     };
     func();
     window.addEventListener('popstate', func);
